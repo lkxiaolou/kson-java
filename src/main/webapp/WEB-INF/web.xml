@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!-- When modifying this file, DO NOT FORGET to also modify workspace-web.xml if necessary so that "brazil-build server"
+    will work. -->
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" version="2.4">
+
+    <display-name>Kson-java</display-name>
+    <!--<context-param>-->
+        <!--<param-name>controllers-package-scan</param-name>-->
+        <!--<param-value>com.kson.controllers</param-value>-->
+    <!--</context-param>-->
+    <!--<listener>-->
+        <!--<listener-class>com.alibaba.dubbo.remoting.http.servlet.BootstrapListener</listener-class>-->
+    <!--</listener>-->
+    <!--<listener>-->
+        <!--<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->
+    <!--</listener>-->
+    <servlet>
+        <servlet-name>KsonServlet</servlet-name>
+        <servlet-class>com.kson.core.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>controllers-package-scan</param-name>
+            <param-value>com.kson.controllers</param-value>
+        </init-param>
+        <init-param>
+            <param-name>default-render-name</param-name>
+            <param-value>json</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>KsonServlet</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+</web-app>
