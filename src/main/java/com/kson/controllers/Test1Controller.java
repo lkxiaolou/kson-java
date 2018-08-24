@@ -8,6 +8,8 @@ import com.kson.core.enums.RenderEnum;
 import com.kson.core.enums.RequestMethodEnum;
 import com.kson.model.User;
 
+import javax.servlet.http.HttpServletRequest;
+
 public class Test1Controller {
 
     @RequestMapping(path = {"/test1/index"}, method = RequestMethodEnum.GET)
@@ -15,7 +17,7 @@ public class Test1Controller {
     public String index(@Get("uid") String uid,
                         @Get("page") Integer page,
                         @Get("pageSize") Integer pageSize,
-                        @Post User user) {
-        return "uid=" + uid + ";page=" + page + ";pageSize=" + pageSize + ";user=" + user;
+                        @Post User user, HttpServletRequest request) {
+        return "uid=" + uid + ";page=" + page + ";pageSize=" + pageSize + ";user=" + user + ";req=" + request;
     }
 }

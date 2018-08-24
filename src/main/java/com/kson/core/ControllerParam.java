@@ -50,6 +50,8 @@ public class ControllerParam {
 
             } else if (parameter.getDeclaredAnnotation(Post.class) != null) {
                 params[i++] = parsePostJsonParam(parameter.getType());
+            } else if (parameter.getType() == HttpServletRequest.class){
+                params[i++] = request;
             } else {
                 params[i++] = null;
             }

@@ -3,7 +3,7 @@
 
 # done
 - 根据注解路由请求
-- 解析get参数 / post json解析为对应的对象
+- 解析get参数 / post json解析为对应的对象 / 控制器接收HttpServletRequest对象
 - json渲染输出,支持扩展
 
 # todo
